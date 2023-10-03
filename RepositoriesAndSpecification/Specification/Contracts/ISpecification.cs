@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Specifications.Contracts
+﻿namespace Specifications.Contracts
 {
     // Summary:
     //     Specifications
@@ -22,6 +16,6 @@ namespace Specifications.Contracts
         // Returns:
         //     System.Linq.IQueryable`1, к которому была применена логика формирования запроса
         //     к базе данных.
-        IQueryable<TResult> ApplySpecification(IQueryable<TResult> set);
+        IQueryable<TResult> ApplyTo(IQueryable<TResult> set);
     }
 }

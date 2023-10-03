@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Repositories.Contracts;
+using RepositoriesAndSpecification.Repositories.Contracts;
 using Specifications.Contracts;
 
-namespace Repositories
+namespace RepositoriesAndSpecification.Repositories
 {
     public class ReadRepositoriesBase<TEntity> : DbContext, IReadRepositoriesBase<TEntity> where TEntity : class
     {
         private protected readonly DbContext _context;
-        
-        protected ReadRepositoriesBase(DbContext context) 
+
+        protected ReadRepositoriesBase(DbContext context)
         {
             _context = context;
         }
@@ -47,7 +47,7 @@ namespace Repositories
             if (specification == null)
                 throw new ArgumentNullException("specification");
 
-            return specification.ApplySpecification(_context.Set<TEntity>().AsQueryable());
+            return specification.ApplyTo(_context.Set<TEntity>().AsQueryable());
         }
     }
 }

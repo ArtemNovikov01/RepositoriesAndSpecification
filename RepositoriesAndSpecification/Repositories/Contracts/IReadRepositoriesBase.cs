@@ -1,12 +1,6 @@
-﻿using Specifications;
-using Specifications.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Specifications.Contracts;
 
-namespace Repositories.Contracts
+namespace RepositoriesAndSpecification.Repositories.Contracts
 {
     public interface IReadRepositoriesBase<TEntity> where TEntity : class
     {

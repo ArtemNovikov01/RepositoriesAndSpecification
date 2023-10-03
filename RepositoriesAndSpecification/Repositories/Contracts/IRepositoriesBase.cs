@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Repositories.Contracts
+﻿namespace RepositoriesAndSpecification.Repositories.Contracts
 {
-    public interface IRepositoriesBase<TEntity> where TEntity : class
+    public interface IRepositoriesBase<TEntity> : IReadRepositoriesBase<TEntity> where TEntity : class
     {
         void Add(TEntity entity);
         void AddRange(IEnumerable<TEntity> entities);

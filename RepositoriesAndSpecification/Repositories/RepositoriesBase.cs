@@ -1,18 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Repositories.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using RepositoriesAndSpecification.Repositories.Contracts;
 
-namespace Repositories
+namespace RepositoriesAndSpecification.Repositories
 {
     public abstract class RepositoriesBase<TEntity> : ReadRepositoriesBase<TEntity>, IRepositoriesBase<TEntity>, IReadRepositoriesBase<TEntity> where TEntity : class
     {
         protected RepositoriesBase(DbContext context)
-            : base(context) 
-        { 
+            : base(context)
+        {
         }
 
         public virtual void Add(TEntity entity)
@@ -27,13 +22,13 @@ namespace Repositories
             _context.SaveChanges();
         }
 
-        public virtual void Update(TEntity entity) 
+        public virtual void Update(TEntity entity)
         {
             _context.Set<TEntity>().Update(entity);
             _context.SaveChanges();
         }
 
-        public virtual void Delete(TEntity entity) 
+        public virtual void Delete(TEntity entity)
         {
             _context.Set<TEntity>().Remove(entity);
             _context.SaveChanges();
